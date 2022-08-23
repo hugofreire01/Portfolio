@@ -22,7 +22,7 @@ body {
     background: linear-gradient(90deg,#000 30%,#141E61);
     border-bottom: 2px solid #fff;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
 }
     .menu-item:nth-child(2) {
@@ -51,26 +51,27 @@ body {
     }
 
 
-.menu a {
-    color: #fff;
-    text-decoration: none;
-}
+    .menu a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-.redes {
-    display: flex;
-    gap: 20px;
-}
+    .redes {
+        display: flex;
+        gap: 20px;
+    }
 
-.nome {
-    font-size: 30px;
-    font-weight: bold;
-}
+    .nome {
+        font-size: 30px;
+        font-weight: bold;
+    }
 
 /* APRESENTAÇÃO */
 .apresentacao {
     display: flex;
     text-align: center;
-    height: 90vh;
+    height: 100vh;
+    width: 100%;
     background-image: url("/img/front3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -116,7 +117,7 @@ body {
 }
 
 .apresentacao-item2 {
-    width: 30%;
+    width: 20%;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -205,12 +206,24 @@ body {
     display: flex;
     height: 100vh;
     width: 100%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid white;
-    padding: 10px;
-    gap: 10px;
     text-align: center;
+}
+
+.projetos h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+    font-size: 40px;
+}
+
+.projetos-itens {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
 }
 
 .projeto1, .projeto2, .projeto3 {
@@ -219,41 +232,58 @@ body {
     justify-content: center;
     flex-direction: column;
     color: #fff;
-    width: 33%;
-    border: 2px solid #fff;
     width: 400px;
-    height: 300px;
+}
+
+.projetos-itens img {
+    width: 100%;
+    border: 2px solid #fff;
 }
 
 /* CONTATO */
 
-.contato {
+.titulo-contato {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-    
+    color: #fff;
+    padding-bottom: 15px;
+    font-size: 40px;
+    margin-top: 20px;
 }
 
-.contato h1 {
+.contato {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 20px;
+    justify-content: center;
+}
+
+.contato-esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     color: #fff;
-    padding: 20px;
-    font-size: 40px;
+    width: 40%;
+    gap: 20px;
+}
+
+.contato-esquerda img {
+
 }
 
 .formulario {
+    display: flex;
+    flex-direction: column;
     border: 2px solid white;
     padding: 20px;
     gap: 20px;
     color: #fff;
     font-size: 20px;
-    width: 50%;
-
-
+    width: 40%;
 }
+
 
 input {
     display: flex;
@@ -270,8 +300,12 @@ input {
     background: #141E61;
     color: #EDF7FD;
     border: 2px solid #fff;
-    
-    
+}
+
+input::placeholder, textarea::placeholder {
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.5;
 }
 
 textarea {
@@ -303,7 +337,7 @@ button {
     margin-top: 20px;
 }
 
-/* SOBRE */
+/*  RODAPÉ */
 
 .footer {
     display: flex;
@@ -322,13 +356,16 @@ button {
 
 }
 
+/*  BOTÃO VOLTAR AO TOPO (em andamento)*/
+
 
 /* MEDIA */
 
 @media (max-width: 1000px) {
     .menu {
-        position: absolute;
+        position: sticky;
     }
+
 
     .apresentacao {
         display: flex;
@@ -338,9 +375,63 @@ button {
         backdrop-filter: none;
     }
 
-    .apresentacao-item2 {
-        width: 700px;
+
+
+    .projetos {
+        display: block;
+        margin-top: 50px;
+        padding-bottom: 50px;
+        width: 100%;
+        align-items: center;
+        border-bottom: none;
+
     }
+
+    .projetos-itens {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .projetos h1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .projeto1, .projeto2, .projeto3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        width: 50%;
+    }
+
+    .projetos img {
+        max-width: 100%;
+        width: 300px;
+    }
+
+    .contato {
+        padding: 10px;
+    }
+
+    .contato-esquerda img{
+        width: 80%;
+    }
+
+    .formulario {
+        width: 80%;
+        height: 100%;
+    }
+
+    input {
+        height: 25px;
+    }
+    
 }
 
 @media (max-width: 730px) {
@@ -350,9 +441,10 @@ button {
 
 
     .menu {
-        display: flex;
+        position: static;
         flex-direction: column;
         width: 100%;
+        border: none;
         border: none;
 
     }
@@ -362,6 +454,12 @@ button {
         font-size: 22px;
     }
 
+    .menu .nome {
+        font-size: 50px;
+        padding: 2px;
+        border-bottom: 2px solid #fff;
+    }
+
     .apresentacao {
             display: flex;
             flex-direction: column;
@@ -369,10 +467,9 @@ button {
             background-image: none;
             border-bottom: none;
             width: 100vw;
+            height: 50%;
             justify-content: center;
             align-items: center;
-            border-top: 3px solid #fff;
-
             padding-top: 20px;
             
     }
@@ -385,14 +482,26 @@ button {
 
     .apresentacao-item2 {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         backdrop-filter: none;
-        width: 80%;
+        width: 100%;
         position: relative;
-
 
     }
 
+    .apresentacao-item2 a {
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background-color: #141E61;
+        padding: 5px;
+        max-width: 500px;
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .apresentacao-item2 img {
+        display: none;
+    }
 
     .sobre {
         display: flex;
@@ -401,10 +510,9 @@ button {
         justify-content: center;
         border-bottom: none;
         text-align: center;
-        height: 60vh;
+        height: 60%;
         margin-top: 20px;
-        margin-bottom: 30px;
-        border-top: 3px solid #fff;
+        margin-bottom: 10px;
 
     }
 
@@ -422,31 +530,61 @@ button {
         font-size: 30px;
     }
 
-  
-
     .sobre-foto {
         display: none;
     }
 
     .projetos {
-
         flex-direction: column;
         justify-content: space-around;
-        width: 100%;
+        width: 100vw;
+        align-items: center;
 
-        
+    }
+
+    .projetos-itens h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .projeto1, .projeto2, .projeto3 {
         color: #fff;
-        border: 2px solid #fff;
+        border: none;
         width: 90%;
-        height: 90%;
+        height: 50%;
+    }
+
+    .projetos-itens img {
+        border: 2px solid #fff;
+        width: 70%;         
+         max-width: 100%;
+         width: 300px;
+
     }
 
     .contato {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contato-esquerda {
+        display: none;
+    }
+
+    .formulario {
+        width: 80%;
+        height: 100%;
+    }
+
+    .formulario input {
         width: 100%;
     }
+
+
 
      
 }
@@ -457,6 +595,8 @@ button {
             .menu {
                 display: flex;
                 position: static;
+                margin-bottom: 60px;
+                border-bottom: 2px solid #fff;
             }
 
             .menu .nome {
@@ -472,29 +612,24 @@ button {
 
         
         .apresentacao {
-            border: none;
             display: flex;
             width: 100vw;
-            height: 100vh;
-            justify-content: center;
+            height: 70%;
+            justify-content: space-between;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
-            
-            
+            padding-top: 30px;
+
         }
-
-
-    .apresentacao-item1 {
-        display: flex;
-        font-size: 10px;
-        
-    }
 
     .apresentacao-item2 {
         display: flex;
         justify-content: center;
+        flex-direction: row;
         align-items: center;
+        height: 80%;
+        position: relative;
+        top: 40px;
         gap: 0px 100px;
     }
 
@@ -507,7 +642,7 @@ button {
     }
 
     .sobre {
-
+        
     }
 
     .sobre-apresentacao {
@@ -521,8 +656,7 @@ button {
         font-size: 20px;
     }
 
-   
-
+  
     
 
 
