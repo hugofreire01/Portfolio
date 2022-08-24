@@ -269,9 +269,6 @@ body {
     gap: 20px;
 }
 
-.contato-esquerda img {
-
-}
 
 .formulario {
     display: flex;
@@ -584,9 +581,6 @@ button {
         width: 100%;
     }
 
-
-
-     
 }
 
 @media (max-width: 450px) {
@@ -641,10 +635,6 @@ button {
         display: none;
     }
 
-    .sobre {
-        
-    }
-
     .sobre-apresentacao {
         text-align: center;
         width: 100%;
@@ -656,10 +646,6 @@ button {
         font-size: 20px;
     }
 
-  
-    
-
-
     .footer {
         display: flex;
         flex-direction: column;
@@ -667,10 +653,6 @@ button {
         text-align: center;
     }
 
-    .footer-item {
-
-
-    }
 }
 
 
